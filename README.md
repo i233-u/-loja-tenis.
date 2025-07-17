@@ -1,27 +1,27 @@
 <!DOCTYPE html>
 <html lang="pt">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>AbyPonp - Loja de Tênis</title>
-<style>
-  body { font-family: Arial, sans-serif; margin: 0; padding: 0; background: #f4f4f4; }
-  header { background: #333; color: white; padding: 10px; text-align: center; }
-  .container { max-width: 900px; margin: auto; padding: 20px; background: white; }
-  .product { border: 1px solid #ddd; padding: 15px; margin-bottom: 15px; display: flex; align-items: center; }
-  .product img { width: 120px; margin-right: 15px; }
-  .product-details { flex-grow: 1; }
-  .product-title { font-size: 18px; margin-bottom: 5px; }
-  .product-price { color: green; font-weight: bold; margin-bottom: 10px; }
-  button { background: #28a745; color: white; border: none; padding: 10px; cursor: pointer; }
-  button:hover { background: #218838; }
-  #cart { position: fixed; right: 10px; top: 60px; width: 250px; background: white; border: 1px solid #ccc; padding: 10px; max-height: 400px; overflow-y: auto; }
-  #cart h3 { margin-top: 0; }
-  #chat { position: fixed; right: 10px; bottom: 10px; width: 250px; background: white; border: 1px solid #ccc; }
-  #chat-header { background: #333; color: white; padding: 5px; cursor: pointer; }
-  #chat-messages { height: 150px; overflow-y: auto; padding: 5px; border-top: 1px solid #ccc; border-bottom: 1px solid #ccc; display: none; }
-  #chat-input { width: calc(100% - 12px); padding: 5px; border: none; display: none; }
-</style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>AbyPonp - Loja de Tênis</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 0; padding: 0; background: #f4f4f4; }
+    header { background: #333; color: white; padding: 10px; text-align: center; }
+    .container { max-width: 900px; margin: auto; padding: 20px; background: white; }
+    .product { border: 1px solid #ddd; padding: 15px; margin-bottom: 15px; display: flex; align-items: center; }
+    .product img { width: 120px; margin-right: 15px; }
+    .product-details { flex-grow: 1; }
+    .product-title { font-size: 18px; margin-bottom: 5px; }
+    .product-price { color: green; font-weight: bold; margin-bottom: 10px; }
+    button { background: #28a745; color: white; border: none; padding: 10px; cursor: pointer; }
+    button:hover { background: #218838; }
+    #cart { position: fixed; right: 10px; top: 60px; width: 250px; background: white; border: 1px solid #ccc; padding: 10px; max-height: 400px; overflow-y: auto; }
+    #cart h3 { margin-top: 0; }
+    #chat { position: fixed; right: 10px; bottom: 10px; width: 250px; background: white; border: 1px solid #ccc; }
+    #chat-header { background: #333; color: white; padding: 5px; cursor: pointer; }
+    #chat-messages { height: 150px; overflow-y: auto; padding: 5px; border-top: 1px solid #ccc; border-bottom: 1px solid #ccc; display: none; }
+    #chat-input { width: calc(100% - 12px); padding: 5px; border: none; display: none; }
+  </style>
 </head>
 <body>
 
@@ -122,7 +122,7 @@
       alert('Seu carrinho está vazio.');
       return;
     }
-    alert('Compra finalizada! Em breve entraremos em contato.');
+    alert('Compra simulada com sucesso! Obrigado pela sua compra.');
     cart = [];
     updateCart();
   }
@@ -130,13 +130,9 @@
   function toggleChat() {
     const messages = document.getElementById('chat-messages');
     const input = document.getElementById('chat-input');
-    if (messages.style.display === 'none' || messages.style.display === '') {
-      messages.style.display = 'block';
-      input.style.display = 'block';
-    } else {
-      messages.style.display = 'none';
-      input.style.display = 'none';
-    }
+    const isHidden = messages.style.display === 'none' || messages.style.display === '';
+    messages.style.display = isHidden ? 'block' : 'none';
+    input.style.display = isHidden ? 'block' : 'none';
   }
 
   function sendMessage() {
@@ -153,7 +149,6 @@
     messages.appendChild(messageDiv);
     input.value = '';
 
-    // Resposta automática de exemplo
     setTimeout(() => {
       const reply = document.createElement('div');
       reply.style.background = '#28a745';
